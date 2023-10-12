@@ -8,20 +8,40 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {EventService} from "./events/shared/event.service";
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { EventDetailsComponent } from './events/event-details/event-details.component';
+import {RouterModule, RouterOutlet} from "@angular/router";
+import {appRoutes} from "./routes";
+import { CreateEventComponent } from './events/createevent/create-event.component';
+import { ErrorsComponent } from './errors/errors.component';
+import {EventRouteActivatorService} from "./events/event-details/event-route-activator.service";
+import {EventsListResolverService} from "./events/events-list-resolver.service";
+import { ProfileComponent } from './user/profile/profile.component';
 
 @NgModule({
   declarations: [
     EventsAppComponent,
     EventsListComponent,
     EventsThumbnailComponent,
-    NavbarComponent
+    NavbarComponent,
+    EventDetailsComponent,
+    CreateEventComponent,
+    ErrorsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterOutlet,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventService],
+  providers: [
+    EventService,
+    EventRouteActivatorService,
+    EventsListResolverService,
+  ],
   bootstrap: [EventsAppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
