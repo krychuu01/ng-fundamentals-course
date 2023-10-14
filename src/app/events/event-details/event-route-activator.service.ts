@@ -11,7 +11,7 @@ export class EventRouteActivatorService implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot) {
-      const eventExsists = !this.eventService.getEvent(route.params['id']);
+      const eventExsists = !!this.eventService.getEvent(route.params['id']);
       console.log("eventExists: ", eventExsists)
       if (!eventExsists) {
         this.router.navigate(['/404'])

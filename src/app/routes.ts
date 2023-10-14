@@ -1,11 +1,11 @@
 import {EventsListComponent} from "./events/events-list.component";
 import {EventDetailsComponent} from "./events/event-details/event-details.component";
 import {Routes} from "@angular/router";
-import {CreateEventComponent} from "./events/createevent/create-event.component";
+import {CreateEventComponent} from "./events/create-event/create-event.component";
 import {ErrorsComponent} from "./errors/errors.component";
 import {EventRouteActivatorService} from "./events/event-details/event-route-activator.service";
-import {resolve} from "@angular/compiler-cli";
 import {EventsListResolverService} from "./events/events-list-resolver.service";
+import {CreateSessionComponent} from "./events/event-details/create-session/create-session.component";
 
 
 export const appRoutes : Routes = [
@@ -17,6 +17,8 @@ export const appRoutes : Routes = [
     },
 
   {path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivatorService]},
+
+  {path: 'events/session/new', component: CreateSessionComponent},
 
   {path: '404', component: ErrorsComponent},
 
